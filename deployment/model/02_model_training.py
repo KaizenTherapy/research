@@ -11,14 +11,17 @@ super simple model to use with
 '''
 
 # read the data 
-df = pd.read_csv('Real estate.csv')
+df = pd.read_csv('Real estate.csv', header = None)
 print(df.head())
 
 # segreate features and target
-ft_drop = ["No", "Y house price of unit area", "X1 transaction date"]
+# ft_drop = ["No", "Y house price of unit area", "X1 transaction date"]
 
-X = df.drop(ft_drop, axis=1)
-y = df['Y house price of unit area']
+X = df.iloc[1:, 2:6]
+# X = df.drop(ft_drop, axis=1)
+
+y = df.iloc[1:, 7]
+# y = df['Y house price of unit area']
 
 print (X.head())
 
